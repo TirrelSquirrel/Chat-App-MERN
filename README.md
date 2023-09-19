@@ -2,17 +2,18 @@
 Aplicación creada para mejorar y asentar conocimientos del Stack MERN.
 
 Tecnologías:
-  -ReactJS
-  -NodeJS
-  -MongoDB
-  -ReactRouter
-  -ExpresJS
-  -Motion
-  -Redux
-  -Axios
-  -Material UI
-  -Socket.io
-
+<ol>
+  <li>ReactJS</li>
+  <li>NodeJS</li>
+  <li>MongoDB</li>
+  <li>>ReactRouter</li>
+  <li>ExpresJS</li>
+  <li>Motion</li>
+  <li>Redux</li>
+  <li>Axios</li>
+  <li>Material UI</li>
+  <li>Socket.io</li>
+</ol>
 Características que busco en esta aplicación:
   -Chat instantñaneo entre dos personas
   -Chat entre una persona y un grupo
