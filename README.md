@@ -1,10 +1,4 @@
-# Chat-App-MERN
-<style>
-  h1{
-    font-weight:bold
-  }
-</style>
-<h1>Aplicación de mensajería instantnánea</h1>
+<h1>MERN STACK | Aplicación de mensajería instantnánea</h1>
 <br>
 <h2>Tecnologías</h2>
 <ol>
