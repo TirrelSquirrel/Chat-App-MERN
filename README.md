@@ -1,5 +1,4 @@
-<h1>MERN STACK | Aplicación de mensajería instantnánea</h1>
-<br>
+<h1>MERN STACK | Aplicación de mensajería instantánea</h1>
 <h2>Tecnologías</h2>
 <ol>
   <li>ReactJS</li>
@@ -13,7 +12,6 @@
   <li>Material UI</li>
   <li>Socket.io</li>
 </ol>
-<br>
 <h2>Características que busco en esta aplicación</h2>
 <ol>
   <li>Chat instantñaneo entre dos personas</li>
