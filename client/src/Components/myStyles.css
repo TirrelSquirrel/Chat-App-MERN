@@ -99,3 +99,21 @@
 .con-lastMessage {
   font-size: 0.75rem;
 }
+
+.chatArea-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatArea-header {
+  background-color: orange;
+}
+
+.messages-container {
+  background-color: aquamarine;
+  flex: 1;
+}
+
+.text-input-area {
+  background-color: yellow;
+}
