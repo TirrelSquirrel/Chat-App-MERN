@@ -7,7 +7,7 @@ function MainContainer() {
   return (
     <div className='main-container'>
         <Sidebar/>
-        <ChatArea />
+        <ChatArea props={{name: 'Test#1', timeStamp: 'today'}}/>
     </div>
   )
 }
