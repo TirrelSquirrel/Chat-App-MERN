@@ -237,4 +237,14 @@
   margin: 10px;
   color: #63d7b0;
   font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-text {
+  font-size: 3vw;
+  margin-bottom: 10px;
 }

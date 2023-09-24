@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../Images/chaticon-512.png";
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 
 function Login() {
   return (
@@ -9,8 +9,16 @@ function Login() {
         <img src={logo} alt="Live Chat Logo" className="welcome-logo" />
       </div>
       <div className="login-box">
-        <p>Inicia sesión</p>
-        <TextField id="standard-basic" label="Standard" variant="standard" />
+        <p className="login-text">Inicia sesión</p>
+        <TextField id="outlined-basic" label="Usuario" variant="outlined" />
+        <TextField
+          id="outlined-password-input"
+          label="Contraseña"
+          type="password"
+          autoComplete="current-password"
+          variant="outlined"
+        />
+        <Button variant="outlined">Login</Button>
       </div>
     </div>
   );
