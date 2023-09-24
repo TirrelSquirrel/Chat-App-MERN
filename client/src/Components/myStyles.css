@@ -19,6 +19,8 @@
   margin: 5px;
   display: flex;
   justify-content: space-between;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .sb-search {
@@ -28,6 +30,8 @@
   margin: 5px;
   display: flex;
   align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .search-box {
@@ -47,6 +51,8 @@
   flex: 1;
   overflow: scroll;
   scrollbar-width: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .sb-conversations::-webkit-scrollbar {
@@ -120,6 +126,8 @@
   padding: 10px 10px;
   margin: 10px;
   border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .header-text {
@@ -137,6 +145,8 @@
   border-radius: 20px;
   overflow: scroll;
   scrollbar-width: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .messages-container::-webkit-scrollbar {
@@ -150,6 +160,8 @@
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .other-text-content {
@@ -221,6 +233,7 @@
   background-color: #f4f5f8;
   border-radius: 20px;
   display: flex;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .image-container {
@@ -247,4 +260,59 @@
 .login-text {
   font-size: 3vw;
   margin-bottom: 10px;
+}
+
+.list-container {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+}
+
+.ug-header {
+  background-color: white;
+  border-radius: 20px;
+  padding: 12px 15px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.ug-title {
+  color: rgba(0, 0, 0, 0.54);
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.ug-list {
+  flex: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 10px;
+}
+
+.ug-list::-webkit-scrollbar {
+  display: none;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+  padding: 10px 5px;
+  margin: 10px;
+  transition-duration: 0.5s;
+  user-select: none;
+}
+
+.list-item:hover {
+  background-color: rgb(226,226,226);
+}
+
+.list-item:active {
+  background-color: white;
 }

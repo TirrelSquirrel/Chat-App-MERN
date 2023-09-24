@@ -9,7 +9,7 @@ function Login() {
         <img src={logo} alt="Live Chat Logo" className="welcome-logo" />
       </div>
       <div className="login-box">
-        <p className="login-text">Inicia sesión</p>
+        <p className="login-text">Inicio de sesión</p>
         <TextField id="outlined-basic" label="Usuario" variant="outlined" />
         <TextField
           id="outlined-password-input"
@@ -18,7 +18,7 @@ function Login() {
           autoComplete="current-password"
           variant="outlined"
         />
-        <Button variant="outlined">Login</Button>
+        <Button variant="outlined">Iniciar sesión</Button>
       </div>
     </div>
   );
