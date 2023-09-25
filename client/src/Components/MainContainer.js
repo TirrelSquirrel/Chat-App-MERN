@@ -4,13 +4,16 @@ import Sidebar from './Sidebar'
 import ChatArea from './ChatArea'
 import Welcome from './Welcome'
 import CreateGroups from './CreateGroups'
-import Users_Groups from './Users_Groups'
+import UsersGroups from './UsersGroups'
+import { Outlet } from "react-router-dom";
+
 
 function MainContainer() {
   return (
     <div className='main-container'>
         <Sidebar/>
-        <Users_Groups />
+        <Outlet />
+        {/* <UsersGroups /> */}
         {/* <Welcome /> */}
         {/* <CreateGroups /> */}
         {/* <ChatArea props={{name: 'Test#1', timeStamp: 'today'}}/> */}

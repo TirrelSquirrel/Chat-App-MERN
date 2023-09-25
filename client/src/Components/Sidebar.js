@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./myStyles.css";
+import { useNavigate } from "react-router-dom";
 
 // Material Icons imports
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -14,24 +15,25 @@ import { IconButton } from "@mui/material";
 import ConversationsItem from "./ConversationsItem";
 
 function Sidebar() {
+  const navigate = useNavigate();
 
   const [conversations, setConversations] = useState([
     {
-      name: 'Test#1',
-      lastMessage: 'Last Message #1',
-      timeStamp: 'today'
+      name: "Test#1",
+      lastMessage: "Last Message #1",
+      timeStamp: "today",
     },
     {
-      name: 'Test#2',
-      lastMessage: 'Last Message #2',
-      timeStamp: 'today'
+      name: "Test#2",
+      lastMessage: "Last Message #2",
+      timeStamp: "today",
     },
     {
-      name: 'Test#3',
-      lastMessage: 'Last Message #3',
-      timeStamp: 'today'
-    }
-  ])
+      name: "Test#3",
+      lastMessage: "Last Message #3",
+      timeStamp: "today",
+    },
+  ]);
 
   return (
     <div className="sidebar-container">
@@ -43,16 +45,16 @@ function Sidebar() {
         </div>
 
         <div>
-          <IconButton>
+          <IconButton onClick={() => navigate("users")}>
             <PersonAddIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("groups")}>
             <GroupAddIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("create-groups")}>
             <AddCircleIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => alert("Stil WIP")}>
             <NightlightIcon />
           </IconButton>
         </div>
@@ -65,7 +67,12 @@ function Sidebar() {
       </div>
       <div className="sb-conversations">
         {conversations.map((conversation) => {
-          return <ConversationsItem props={conversation} key={conversation.name}/>
+          return (
+            <ConversationsItem
+              props={conversation}
+              key={conversation.name}              
+            />
+          );
         })}
       </div>
     </div>

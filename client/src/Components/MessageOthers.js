@@ -1,7 +1,7 @@
 import React from 'react'
 
 function MessageOthers() {
-  let props = { name:'RtherUser', message: 'This is a Sample message'}
+  let props = { name:'Random User', message: 'This is a Sample message'}
   return (
     <div className="other-message-container">
       <div className="conversation-container">

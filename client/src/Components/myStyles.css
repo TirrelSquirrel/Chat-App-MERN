@@ -67,8 +67,18 @@
   padding: 5px;
   margin: 5px;
   border-radius: 20px;
+  user-select: none;
 
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition-duration: 0.5s;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+.conversation-container:hover {
+  background-color: #d9d9d9;
+}
+
+.conversation-container:active {
+  background-color: white;
 }
 
 .con-icon {
