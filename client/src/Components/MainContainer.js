@@ -1,10 +1,10 @@
 import React from 'react'
 import './myStyles.css'
 import Sidebar from './Sidebar'
-import ChatArea from './ChatArea'
+/* import ChatArea from './ChatArea'
 import Welcome from './Welcome'
 import CreateGroups from './CreateGroups'
-import UsersGroups from './UsersGroups'
+import UsersGroups from './UsersGroups' */
 import { Outlet } from "react-router-dom";
 
 
