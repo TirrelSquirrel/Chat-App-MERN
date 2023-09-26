@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
 import logo from "../Images/chaticon-512.png";
 
-function UsersGroups() {
+function Users() {
   return (
     <div className="list-container">
       <div className="ug-header">
@@ -32,4 +32,4 @@ function UsersGroups() {
   );
 }
 
-export default UsersGroups;
+export default Users;

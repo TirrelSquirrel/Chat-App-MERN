@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./myStyles.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../Features/themeSlice";
 
 // Material Icons imports
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -17,7 +19,9 @@ import ConversationsItem from "./ConversationsItem";
 
 function Sidebar() {
   const navigate = useNavigate();
-  const [lighttheme, setLightTheme] = useState(true);
+  const dispatch = useDispatch();
+
+  const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
   const [conversations, setConversations] = useState([
     {
@@ -56,7 +60,7 @@ function Sidebar() {
           <IconButton onClick={() => navigate("create-groups")}>
             <AddCircleIcon className={"icon" + changeTheme} />
           </IconButton>
-          <IconButton onClick={() => setLightTheme(!lighttheme)}>
+          <IconButton onClick={() => dispatch(toggleTheme())}>
             {lighttheme ? (
               <NightlightIcon className={"icon" + changeTheme} />
             ) : (

@@ -1,8 +1,12 @@
 .dark {
-  background-color: #2d3941 !important;
+  background-color: #3a4852 !important;
   color: whitesmoke !important;
 }
 
+.darker {
+  background-color: #2d3941 !important;
+  color: whitesmoke !important;
+}
 .main-container {
   background-color: #f4f5f8;
   height: 90vh;
@@ -330,9 +334,9 @@
 }
 
 .list-item:hover {
-  background-color: rgb(226,226,226);
+  background-color: rgb(226,226,226) !important;
 }
 
 .list-item:active {
-  background-color: white;
+  background-color: white !important;
 }
