@@ -12,6 +12,11 @@
   background-color: #4e5f6b !important;
 }
 
+.dark-hover:active {
+  color: whitesmoke !important;
+  background-color: #637a8a !important;
+}
+
 .dark-text {
   color: whitesmoke !important;
 
@@ -136,6 +141,7 @@
   justify-self: center;
   align-self: center;
   margin-right: 5px;
+  user-select: none;
 }
 
 .con-title {
@@ -143,6 +149,7 @@
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-weight: bold;
   color: rgba(0, 0, 0, 0.54);
+  user-select: none;
 }
 
 .con-timeStamp {
@@ -150,6 +157,7 @@
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-size: 0.75rem;
   color: rgba(0, 0, 0, 0.54);
+  user-select: none;
 }
 
 .con-lastMessage {
@@ -233,6 +241,7 @@
   padding: 10px 10px;
   margin: 5px;
   border-radius: 20px;
+  user-select: none;
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
@@ -360,4 +369,38 @@
 
 .list-item:active {
   background-color: white;
+}
+
+.other-icons {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 40em) {
+  .sb-search {
+    display: none;
+  }
+  .sb-conversations {
+    display: none;
+  }
+  .sb-header {
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    width: min-content;
+  }
+  .other-icons {
+    flex-direction: column;
+  }
+  .sidebar-container {
+    flex: 0;
+  }
+  .chatArea-container {
+    flex: 1;
+  }
+  .main-container {
+    height: 100vh;
+    width: 100vw;
+  }
 }

@@ -15,7 +15,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
 
 //Components imports
-import ConversationsItem from "./ConversationsItem";
+import ConversationsContainer from "./ConversationsContainer";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -24,23 +24,7 @@ function Sidebar() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
 
-  const [conversations, setConversations] = useState([
-    {
-      name: "Test#1",
-      lastMessage: "Last Message #1",
-      timeStamp: "today",
-    },
-    {
-      name: "Test#2",
-      lastMessage: "Last Message #2",
-      timeStamp: "today",
-    },
-    {
-      name: "Test#3",
-      lastMessage: "Last Message #3",
-      timeStamp: "today",
-    },
-  ]);
+  
 
   return (
     <div className="sidebar-container">
@@ -51,7 +35,7 @@ function Sidebar() {
           </IconButton>
         </div>
 
-        <div>
+        <div className="other-icons">
           <IconButton onClick={() => navigate("users")}>
             <PersonAddIcon className={"icon" + changeTheme} />
           </IconButton>
@@ -76,13 +60,7 @@ function Sidebar() {
         </IconButton>
         <input placeholder="Buscar" className={"search-box" + changeTheme} />
       </div>
-      <div className={"sb-conversations" + changeTheme}>
-        {conversations.map((conversation) => {
-          return (
-            <ConversationsItem props={conversation} key={conversation.name} />
-          );
-        })}
-      </div>
+      <ConversationsContainer />
     </div>
   );
 }
