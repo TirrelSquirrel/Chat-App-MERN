@@ -4,9 +4,15 @@
 }
 
 .darker {
-  background-color: #2d3941 !important;
+  background-color: #4e5f6b !important;
   color: whitesmoke !important;
 }
+
+.darker-self {
+  background-color: #4da88a !important;
+  color: whitesmoke !important;
+}
+
 .main-container {
   background-color: #f4f5f8;
   height: 90vh;

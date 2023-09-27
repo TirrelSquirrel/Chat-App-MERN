@@ -3,29 +3,31 @@ import "./myStyles.css";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
 import logo from "../Images/chaticon-512.png";
-
+import { useSelector } from "react-redux";
 function Users() {
+  const lighttheme = useSelector((state) => state.themeKey);
+  const changeTheme = lighttheme ? "" : " dark";
   return (
     <div className="list-container">
-      <div className="ug-header">
+      <div className={"ug-header" + changeTheme}>
         <img
           src={logo}
           style={{ height: "2rem", width: "2rem", marginLeft: "10px" }}
           alt="Live Chat Logo"
         />
-        <p className="ug-title">Usuarios Online</p>
+        <p className={"ug-title" + changeTheme}>Usuarios Online</p>
       </div>
 
-      <div className="sb-search">
+      <div className={"sb-search" + changeTheme}>
         <IconButton>
-          <SearchIcon />
+          <SearchIcon className={changeTheme} />
         </IconButton>
-        <input placeholder="Buscar" className="search-box" />
+        <input placeholder="Buscar" className={"search-box" + changeTheme} />
       </div>
       <div className="ug-list">
-        <div className="list-item">
-            <p className="con-icon">T</p>
-            <p className="con-title">Test User</p>
+        <div className={"list-item" + changeTheme}>
+          <p className={"con-icon" + changeTheme}>T</p>
+          <p className={"con-title" + changeTheme}>Test User</p>
         </div>
       </div>
     </div>

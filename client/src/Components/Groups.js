@@ -7,36 +7,34 @@ import { useSelector } from "react-redux";
 
 function Groups() {
   const lighttheme = useSelector((state) => state.themeKey);
-  const changeDark = lighttheme ? "" : " dark";
-  const changeDarker = lighttheme ? "" : " darker";
+  const changeTheme = lighttheme ? "" : " dark";
 
   return (
     <div className="list-container">
-      <div className={"ug-header" + changeDark}>
+      <div className={"ug-header" + changeTheme}>
         <img
           src={logo}
           style={{ height: "2rem", width: "2rem", marginLeft: "10px" }}
           alt="Live Chat Logo"
         />
-        <p className={"ug-title" + changeDark}>Grupos Disponibles</p>
+        <p className={"ug-title" + changeTheme}>Grupos Disponibles</p>
       </div>
 
-      <div className={"sb-search" + changeDark}>
+      <div className={"sb-search" + changeTheme}>
         <IconButton>
-          <SearchIcon className={changeDark} />
+          <SearchIcon className={changeTheme} />
         </IconButton>
-        <input placeholder="Buscar" className={"search-box" + changeDark} />
+        <input placeholder="Buscar" className={"search-box" + changeTheme} />
       </div>
-      <div className={"ug-list" + changeDarker}>
-        <div className={"list-item" + changeDark}>
-          <p className={"con-icon" + changeDark}>T</p>
-          <p className={"con-title" + changeDark}>Test Group</p>
+      <div className="ug-list">
+        <div className={"list-item" + changeTheme}>
+          <p className={"con-icon" + changeTheme}>T</p>
+          <p className={"con-title" + changeTheme}>Test Group</p>
         </div>
       </div>
     </div>
   );
 }
-// TODO: Seguir poniendo el dark theme
 // TODO: Arreglar para mantener efectos hover y active
 
 export default Groups;
