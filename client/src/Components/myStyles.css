@@ -11,6 +11,11 @@
   background-color: #4e5f6b !important;
 }
 
+.dark-text {
+  color: whitesmoke !important;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+
 .darker {
   background-color: #4e5f6b !important;
   color: whitesmoke !important;
@@ -348,7 +353,7 @@
 }
 
 .list-item:hover {
-  background-color: rgb(226, 226, 226) ;
+  background-color: rgb(226, 226, 226);
 }
 
 .list-item:active {

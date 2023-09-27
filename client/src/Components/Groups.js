@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 function Groups() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
+  const changeThemeHover = lighttheme ? "" : " dark-hover";
+  const changeThemeText = lighttheme ? "" : " dark-text";
 
   return (
     <div className="list-container">
@@ -27,9 +29,9 @@ function Groups() {
         <input placeholder="Buscar" className={"search-box" + changeTheme} />
       </div>
       <div className="ug-list">
-        <div className={"list-item" + changeTheme}>
+        <div className={"list-item" + changeThemeHover}>
           <p className={"con-icon" + changeTheme}>T</p>
-          <p className={"con-title" + changeTheme}>Test Group</p>
+          <p className={"con-title" + changeThemeText}>Test Group</p>
         </div>
       </div>
     </div>

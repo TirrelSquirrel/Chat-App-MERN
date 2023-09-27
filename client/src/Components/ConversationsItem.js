@@ -7,17 +7,18 @@ function ConversationsItem({ props }) {
   const changeTheme = lighttheme ? "" : " dark";
   const changeThemeHover = lighttheme ? "" : " dark-hover";
   const changeThemeDarker = lighttheme ? "" : " darker";
+  const changeThemeText = lighttheme ? "" : " dark-text";
+
   const navigate = useNavigate();
   return (
     <div className={"conversation-container" + changeThemeHover} onClick={() => navigate("chat")}>
       <p className={"con-icon" + changeThemeDarker}>{props.name[0]}</p>
-      <p className={"con-title" + changeThemeHover}>{props.name}</p>
-      <p className={"con-lastMessage" + changeThemeHover}>{props.lastMessage}</p>
-      <p className={"con-timeStamp" + changeThemeHover}>{props.timeStamp}</p>
+      <p className={"con-title" + changeThemeText}>{props.name}</p>
+      <p className={"con-lastMessage" + changeThemeText}>{props.lastMessage}</p>
+      <p className={"con-timeStamp" + changeThemeText}>{props.timeStamp}</p>
     </div>
   );
 }
 
-//TODO:LA MIERDA DEL HOVER
 
 export default ConversationsItem;

@@ -8,6 +8,7 @@ function Users() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
   const changeThemeHover = lighttheme ? "" : " dark-hover";
+  const changeThemeText = lighttheme ? "" : " dark-text";
 
   return (
     <div className="list-container">
@@ -29,7 +30,7 @@ function Users() {
       <div className="ug-list">
         <div className={"list-item" + changeThemeHover}>
           <p className={"con-icon" + changeTheme}>T</p>
-          <p className={"con-title" + changeTheme}>Test User</p>
+          <p className={"con-title" + changeThemeText}>Test User</p>
         </div>
       </div>
     </div>
