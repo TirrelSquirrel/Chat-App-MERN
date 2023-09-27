@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 function Users() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
+  const changeThemeHover = lighttheme ? "" : " dark-hover";
+
   return (
     <div className="list-container">
       <div className={"ug-header" + changeTheme}>
@@ -25,7 +27,7 @@ function Users() {
         <input placeholder="Buscar" className={"search-box" + changeTheme} />
       </div>
       <div className="ug-list">
-        <div className={"list-item" + changeTheme}>
+        <div className={"list-item" + changeThemeHover}>
           <p className={"con-icon" + changeTheme}>T</p>
           <p className={"con-title" + changeTheme}>Test User</p>
         </div>

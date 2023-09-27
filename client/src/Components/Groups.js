@@ -35,6 +35,5 @@ function Groups() {
     </div>
   );
 }
-// TODO: Arreglar para mantener efectos hover y active
 
 export default Groups;
