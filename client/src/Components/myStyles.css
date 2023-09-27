@@ -5,6 +5,7 @@
 .dark-hover {
   color: whitesmoke !important;
   background-color: #3a4852 !important;
+  transition-duration: 0.5s;
 }
 .dark-hover:hover {
   color: whitesmoke !important;
@@ -13,6 +14,7 @@
 
 .dark-text {
   color: whitesmoke !important;
+
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
