@@ -10,7 +10,7 @@ function ConversationsItem({ props }) {
 
   const navigate = useNavigate();
   return (
-    <div className={"conversation-container" + changeThemeHover} onClick={() => navigate("chat")}>
+    <div className={"conversation-container" + changeThemeHover} onClick={() => navigate("/app/chat")}>
       <p className={"con-icon" + changeThemeDarker}>{props.name[0]}</p>
       <p className={"con-title" + changeThemeText}>{props.name}</p>
       <p className={"con-lastMessage" + changeThemeText}>{props.lastMessage}</p>

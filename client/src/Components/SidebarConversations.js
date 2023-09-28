@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ConversationsItem from "./ConversationsItem";
 
-function ConversationsContainer() {
+function SidebarConversations() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
 
@@ -24,7 +24,7 @@ function ConversationsContainer() {
     },
   ]);
   return (
-    <div className={"conversations-container" + changeTheme}>
+    <div className={"sb-conversations" + changeTheme}>
       {conversations.map((conversation) => {
         return (
           <ConversationsItem props={conversation} key={conversation.name} />
@@ -34,4 +34,4 @@ function ConversationsContainer() {
   );
 }
 
-export default ConversationsContainer;
+export default SidebarConversations;

@@ -16,7 +16,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import { IconButton } from "@mui/material";
 
 //Components imports
-import ConversationsContainer from "./ConversationsContainer";
+import SidebarConversations from "./SidebarConversations";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function Sidebar() {
         </div>
 
         <div className="other-icons">
-          <IconButton>
+          <IconButton onClick={() => navigate('conversations')}>
             <ChatIcon className={'icon icon-chat' + changeTheme}/>
           </IconButton>
           <IconButton onClick={() => navigate("users")}>
@@ -64,7 +64,7 @@ function Sidebar() {
         </IconButton>
         <input placeholder="Buscar" className={"search-box" + changeTheme} />
       </div>
-      <ConversationsContainer />
+      <SidebarConversations />
     </div>
   );
 }
