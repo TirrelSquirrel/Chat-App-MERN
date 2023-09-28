@@ -368,7 +368,7 @@
 }
 
 .list-item:active {
-  background-color: white;
+  background-color: rgb(175, 174, 174);
 }
 
 .other-icons {
@@ -444,4 +444,3 @@
   }
 }
 
-/* TODO:Mirar el active base de los list items de group y users */
