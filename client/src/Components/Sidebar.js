@@ -12,6 +12,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import SearchIcon from "@mui/icons-material/Search";
+import ChatIcon from "@mui/icons-material/Chat";
 import { IconButton } from "@mui/material";
 
 //Components imports
@@ -36,6 +37,9 @@ function Sidebar() {
         </div>
 
         <div className="other-icons">
+          <IconButton>
+            <ChatIcon className={'icon icon-chat' + changeTheme}/>
+          </IconButton>
           <IconButton onClick={() => navigate("users")}>
             <PersonAddIcon className={"icon" + changeTheme} />
           </IconButton>

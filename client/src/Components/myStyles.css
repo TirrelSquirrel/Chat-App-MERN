@@ -377,6 +377,10 @@
   justify-content: space-evenly;
 }
 
+.icon-chat {
+  display: none !important;
+}
+
 @media only screen and (max-width: 40em) {
   .sb-search {
     display: none;
@@ -393,6 +397,9 @@
   .other-icons {
     flex-direction: column;
   }
+  .icon-chat {
+    display: block !important;
+  }
   .sidebar-container {
     flex: 0;
   }
@@ -403,4 +410,22 @@
     height: 100vh;
     width: 100vw;
   }
+  .createGroups-container {
+    flex: 1;
+  }
+  .list-container {
+    flex: 1;
+  }
+  .welcome-container {
+    flex: 1;
+    text-align: center;
+  }
+  .welcome-logo {
+    height: 40vw;
+  }
+  .login-container {
+    flex-direction: column;
+  }
 }
+
+/* TODO:Mirar el active base de los list items de group y users */
