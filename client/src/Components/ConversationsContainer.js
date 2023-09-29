@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ConversationsItem from "./ConversationsItem";
+import {motion, AnimatePresence} from 'framer-motion'
 
 function ConversationsContainer() {
   const lighttheme = useSelector((state) => state.themeKey);
@@ -24,13 +25,24 @@ function ConversationsContainer() {
     },
   ]);
   return (
-    <div className={"conversations-container" + changeTheme}>
-      {conversations.map((conversation) => {
-        return (
-          <ConversationsItem props={conversation} key={conversation.name} />
-        );
-      })}
-    </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+        transition={{
+          ease: "anticipate",
+          duration: "0.2",
+        }}
+        className={"conversations-container" + changeTheme}
+      >
+        {conversations.map((conversation) => {
+          return (
+            <ConversationsItem props={conversation} key={conversation.name} />
+          );
+        })}
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
