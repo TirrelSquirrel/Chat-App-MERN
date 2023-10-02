@@ -11,6 +11,7 @@
   <li>Axios</li>
   <li>Material UI</li>
   <li>Socket.io</li>
+  <li>Postman</li>
 </ol>
 <h2>Características que busco en esta aplicación</h2>
 <ol>
