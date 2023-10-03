@@ -1,10 +1,24 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const { default: mongoose } = require("mongoose");
 
 const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT;
+const MONGO_URI = process.env.MONGO_URI;
+
+const connectDb = async () => {
+  try {
+    const connect = await mongoose.connect(MONGO_URI);
+    console.log("Server is connected to DB");
+  } catch (error) {
+    console.log('Error connecting to DB:', error.message);
+  }
+  
+};
+
+connectDb();
 
 app.get("/", (req, res) => {
   res.send("API is running");
