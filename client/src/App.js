@@ -9,12 +9,14 @@ import Groups from "./Components/Groups";
 import CreateGroups from "./Components/CreateGroups";
 import Users from "./Components/Users";
 import ConversationsContainer from "./Components/ConversationsContainer";
+import Register from "./Components/Register";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="app" element={<MainContainer/>}>
           <Route path="welcome" element={<Welcome/>}/>
           <Route path="chat" element={<ChatArea/>}/>

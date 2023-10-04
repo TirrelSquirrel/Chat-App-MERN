@@ -4,9 +4,9 @@ import { TextField, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Register() {
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
@@ -17,10 +17,16 @@ function Login() {
         <img src={logo} alt="Live Chat Logo" className="welcome-logo" />
       </div>
       <div className={"login-box" + changeTheme}>
-        <p className={"login-text" + changeTheme}>Inicio de sesión</p>
+        <p className={"login-text" + changeTheme}>Crea tu cuenta</p>
         <TextField
           id="outlined-basic"
           label="Usuario"
+          variant="outlined"
+          className={changeTheme}
+        />
+        <TextField
+          id="outlined-basic"
+          label="Email"
           variant="outlined"
           className={changeTheme}
         />
@@ -33,15 +39,19 @@ function Login() {
           className={changeTheme}
         />
         <Button variant="outlined" className={changeTheme}>
-          Iniciar sesión
+          Registro
         </Button>
-        <p>¿No tienes una cuenta?</p>
-        <Button variant="outlined" className={changeTheme} onClick={() => navigate('/register')}>
-          Registrate
+        <p>¿Ya tienes una cuenta?</p>
+        <Button
+          variant="outlined"
+          className={changeTheme}
+          onClick={() => navigate("/")}
+        >
+          Inicia sesión
         </Button>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;
