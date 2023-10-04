@@ -441,6 +441,12 @@
   }
   .login-container {
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .login-container .image-container {
+    flex: 0.25;    
   }
 }
 
