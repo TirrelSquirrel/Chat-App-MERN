@@ -6,6 +6,8 @@ const userRoutes = require('./Routes/userRoutes')
 const app = express();
 dotenv.config();
 
+app.use(express.json());
+
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -24,6 +26,6 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-app.use('user/', userRoutes);
+app.use('/user', userRoutes);
 
 app.listen(PORT, console.log("Server is Running!"));
