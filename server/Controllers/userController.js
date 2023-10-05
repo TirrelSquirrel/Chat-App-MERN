@@ -6,11 +6,13 @@ const generateToken = require("../Config/generateToken");
 const loginController = expressAsyncHandler(async (req, res) => {
   const { name, password } = req.body;
 
-  const user = await userModel.findOne({name});
+  const user = await userModel.findOne({ name });
 
-  // TODO:Pendiente porque el matchPassword no esta definido aun
+  if (!user) {
+    res.send("Ese usuario no existe");
+  }
 
-  if(user&&(await user.matchPassword(password))) {
+  if(await user.matchPassword(password)) {
     res.json({
       _id: user._id,
       name: user.name,
@@ -18,7 +20,8 @@ const loginController = expressAsyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
   })} else {
-    throw new Error('Credenciales inválidas')
+    res.send('Contraseña inválida');
+    throw new Error('Contraseña inválida')
   }
 });
 
@@ -60,4 +63,20 @@ const registerController = expressAsyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { loginController, registerController };
+const fetchAllUsers = expressAsyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+      $or: [
+        {name: {$regex: req.query.search, $options: 'i'}},
+        {email: {$regex: req.query.search, $options: 'i'}}
+      ]
+    }
+    : {};
+
+  const users = await userModel.find(keyword).find({
+    _id: {$ne: req.user._id}
+  });
+  res.send(users);
+});
+
+module.exports = { loginController, registerController, fetchAllUsers };

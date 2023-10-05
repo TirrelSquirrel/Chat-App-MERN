@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
