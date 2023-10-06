@@ -20,7 +20,7 @@ const loginController = expressAsyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
   })} else {
-    res.send('Contraseña inválida');
+    res.sendStatus(401);
     throw new Error('Contraseña inválida')
   }
 });
@@ -37,12 +37,14 @@ const registerController = expressAsyncHandler(async (req, res) => {
   //! el usuario ya existe: email
   const userExists = await userModel.findOne({ email });
   if (userExists) {
+    res.sendStatus(405)
     throw new Error("El email ya está registrado");
   }
 
   //! el usuario ya existe: nombre
   const userNameExists = await userModel.findOne({ name });
   if (userNameExists) {
+    res.sendStatus(406)
     throw new Error("El usuario ya existe");
   }
 
