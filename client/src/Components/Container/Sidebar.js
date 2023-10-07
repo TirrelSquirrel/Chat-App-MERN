@@ -25,8 +25,6 @@ function Sidebar() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeTheme = lighttheme ? "" : " dark";
 
-  
-
   return (
     <div className="sidebar-container">
       <div className={"sb-header" + changeTheme}>
@@ -37,8 +35,8 @@ function Sidebar() {
         </div>
 
         <div className="other-icons">
-          <IconButton onClick={() => navigate('conversations')}>
-            <ChatIcon className={'icon icon-chat' + changeTheme}/>
+          <IconButton onClick={() => navigate("conversations")}>
+            <ChatIcon className={"icon icon-chat" + changeTheme} />
           </IconButton>
           <IconButton onClick={() => navigate("users")}>
             <PersonAddIcon className={"icon" + changeTheme} />

@@ -12,16 +12,17 @@ const loginController = expressAsyncHandler(async (req, res) => {
     res.send("Ese usuario no existe");
   }
 
-  if(await user.matchPassword(password)) {
+  if (await user.matchPassword(password)) {
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
-  })} else {
+    });
+  } else {
     res.sendStatus(401);
-    throw new Error('Contraseña inválida')
+    throw new Error("Contraseña inválida");
   }
 });
 
@@ -37,14 +38,14 @@ const registerController = expressAsyncHandler(async (req, res) => {
   //! el usuario ya existe: email
   const userExists = await userModel.findOne({ email });
   if (userExists) {
-    res.sendStatus(405)
+    res.sendStatus(405);
     throw new Error("El email ya está registrado");
   }
 
   //! el usuario ya existe: nombre
   const userNameExists = await userModel.findOne({ name });
   if (userNameExists) {
-    res.sendStatus(406)
+    res.sendStatus(406);
     throw new Error("El usuario ya existe");
   }
 
@@ -68,15 +69,15 @@ const registerController = expressAsyncHandler(async (req, res) => {
 const fetchAllUsers = expressAsyncHandler(async (req, res) => {
   const keyword = req.query.search
     ? {
-      $or: [
-        {name: {$regex: req.query.search, $options: 'i'}},
-        {email: {$regex: req.query.search, $options: 'i'}}
-      ]
-    }
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { email: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
     : {};
 
   const users = await userModel.find(keyword).find({
-    _id: {$ne: req.user._id}
+    _id: { $ne: req.user._id },
   });
   res.send(users);
 });

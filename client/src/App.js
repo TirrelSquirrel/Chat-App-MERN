@@ -14,14 +14,14 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="app" element={<MainContainer/>}>
-          <Route path="welcome" element={<Welcome/>}/>
-          <Route path="chat" element={<ChatArea/>}/>
-          <Route path="users" element={<Users/>}/>
-          <Route path="groups" element={<Groups/>}/>
-          <Route path="create-groups" element={<CreateGroups/>}/>
-          <Route path="conversations" element={<ConversationsContainer/>}/>
+        <Route path="/" element={<Login />} />
+        <Route path="app" element={<MainContainer />}>
+          <Route path="welcome" element={<Welcome />} />
+          <Route path="chat" element={<ChatArea />} />
+          <Route path="users" element={<Users />} />
+          <Route path="groups" element={<Groups />} />
+          <Route path="create-groups" element={<CreateGroups />} />
+          <Route path="conversations" element={<ConversationsContainer />} />
         </Route>
       </Routes>
       {/* <MainContainer />
