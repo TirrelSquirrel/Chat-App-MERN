@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./myStyles.css";
+import "../../styles/myStyles.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../Features/themeSlice";
+import { toggleTheme } from "../../Features/themeSlice";
 
 // Material Icons imports
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -16,7 +16,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import { IconButton } from "@mui/material";
 
 //Components imports
-import SidebarConversations from "./SidebarConversations";
+import SidebarConversations from "../Pure/Conversations/SidebarConversations";
 
 function Sidebar() {
   const navigate = useNavigate();

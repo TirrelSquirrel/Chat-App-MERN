@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
-import MessageOthers from "./MessageOthers";
-import MessageSelf from "./MessageSelf";
+import MessageOthers from "../Messages/MessageOthers";
+import MessageSelf from "../Messages/MessageSelf";
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 

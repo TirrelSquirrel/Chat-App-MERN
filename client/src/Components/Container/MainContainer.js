@@ -1,5 +1,5 @@
 import React from "react";
-import "./myStyles.css";
+import "../../styles/myStyles.css";
 import Sidebar from "./Sidebar";
 /* import ChatArea from './ChatArea'
 import Welcome from './Welcome'

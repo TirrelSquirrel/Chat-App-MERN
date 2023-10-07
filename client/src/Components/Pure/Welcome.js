@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Images/chaticon-512.png";
+import logo from "../../Images/chaticon-512.png";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -8,9 +8,10 @@ function Welcome() {
   const lighttheme = useSelector((state) => state.themeKey);
   const changeThemeText = lighttheme ? "" : " dark-text";
 
+  const navigate = useNavigate();
+
   const userData = JSON.parse(localStorage.getItem("userData"));
   console.log(userData);
-  const navigate = useNavigate();
   if (!userData) {
     console.log("Usuario no autenticado");
     navigate("/");

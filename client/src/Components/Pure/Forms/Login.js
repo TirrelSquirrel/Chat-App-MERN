@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from "../Images/chaticon-512.png";
+import logo from "../../../Images/chaticon-512.png";
 import { TextField, Button, Backdrop, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Toaster from "./Toaster";
+import Toaster from "../Addons/Toaster";
 
 function Login() {
   const [showLogin, setShowLogin] = useState(true);

@@ -1,8 +1,8 @@
 import React from "react";
-import "./myStyles.css";
+import "../../../styles/myStyles.css";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
-import logo from "../Images/chaticon-512.png";
+import logo from "../../../Images/chaticon-512.png";
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 

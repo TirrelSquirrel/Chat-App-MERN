@@ -1,14 +1,14 @@
-import "./App.css";
+import "./styles/App.css";
 import React from "react";
-import MainContainer from "./Components/MainContainer";
-import Login from "./Components/Login";
+import MainContainer from "./Components/Container/MainContainer";
+import Login from "./Components/Pure/Forms/Login";
 import { Routes, Route } from "react-router-dom";
-import Welcome from "./Components/Welcome";
-import ChatArea from "./Components/ChatArea";
-import Groups from "./Components/Groups";
-import CreateGroups from "./Components/CreateGroups";
-import Users from "./Components/Users";
-import ConversationsContainer from "./Components/ConversationsContainer";
+import Welcome from "./Components/Pure/Welcome";
+import ChatArea from "./Components/Pure/Conversations/ChatArea";
+import Groups from "./Components/Pure/Groups/Groups";
+import CreateGroups from "./Components/Pure/Groups/CreateGroups";
+import Users from "./Components/Pure/Users/Users";
+import ConversationsContainer from "./Components/Pure/Conversations/ConversationsContainer";
 
 function App() {
   return (
