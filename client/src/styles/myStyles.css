@@ -142,6 +142,8 @@
   align-self: center;
   margin-right: 5px;
   user-select: none;
+
+  text-transform: uppercase;
 }
 
 .con-title {

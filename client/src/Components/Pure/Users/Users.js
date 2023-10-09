@@ -75,7 +75,6 @@ function Users() {
               className={"list-item" + changeThemeHover}
               key={index}
               onClick={() => {
-                console.log("Creando un chat con: ", user.name)
                 const config = {
                   headers: {
                     Authorization: `Bearer ${userData.data.token}`,
