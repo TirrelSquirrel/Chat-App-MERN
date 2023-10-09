@@ -4,6 +4,7 @@ const cors = require("cors");
 const { default: mongoose } = require("mongoose");
 const userRoutes = require("./Routes/userRoutes");
 const chatRoutes = require("./Routes/chatRoutes");
+const messageRoutes = require("./Routes/messageRoutes");
 
 const app = express();
 dotenv.config();
@@ -30,5 +31,6 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRoutes);
 app.use("/chat", chatRoutes);
+app.use("/message", messageRoutes);
 
 app.listen(PORT, console.log("Server is Running!"));

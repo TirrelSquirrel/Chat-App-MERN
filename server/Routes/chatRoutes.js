@@ -5,6 +5,7 @@ const {
   fetchGroups,
   createGroupChat,
   groupExit,
+  addSelfToGroup
 } = require("../Controllers/chatController");
 const { protect } = require("../Middleware/authMiddleware");
 
@@ -15,5 +16,6 @@ router.route("/").get(protect, fetchChats);
 router.route("/fetchGroups").get(protect, fetchGroups);
 router.route("/createGroup").post(protect, createGroupChat);
 router.route("/groupExit").put(protect, groupExit);
+router.route('/addSelfToGroup').put(protect, addSelfToGroup)
 
 module.exports = router;

@@ -135,10 +135,35 @@ const groupExit = expressAsyncHandler(async (req, res) => {
   }
 });
 
+const addSelfToGroup = expressAsyncHandler(async (req, res) => {
+  const { chatId, userId } = req.body;
+
+  const added = await chat
+    .findByIdAndUpdate(
+      chatId,
+      {
+        $push: { $users: userId },
+      },
+      {
+        new: true,
+      }
+    )
+    .populate("users", "-password")
+    .populate("groupAdmin", "-password");
+
+    if(!added) {
+      res.sendStatus(400);
+      throw new Error('Chat no encontrado')
+    } else {
+      res.json('Añadido')
+    }
+});
+
 module.exports = {
-    accessChat,
-    fetchChats,
-    fetchGroups,
-    createGroupChat,
-    groupExit
-}
+  accessChat,
+  fetchChats,
+  fetchGroups,
+  createGroupChat,
+  groupExit,
+  addSelfToGroup,
+};
