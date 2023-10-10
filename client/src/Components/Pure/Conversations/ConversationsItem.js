@@ -8,6 +8,9 @@ function ConversationsItem({ props }) {
   const changeThemeDarker = lighttheme ? "" : " darker";
   const changeThemeText = lighttheme ? "" : " dark-text";
 
+  
+
+
   const navigate = useNavigate();
   return (
     <div className={"conversation-container" + changeThemeHover} onClick={() => navigate("/app/chat")}>

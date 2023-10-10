@@ -55,14 +55,15 @@ const fetchChats = expressAsyncHandler(async (req, res) => {
       .find({ users: { $elemMatch: { $eq: req.user._id } } })
       .populate("users", "-password")
       .populate("groupAdmin", "-password")
-      .populate("ñatestMessage")
+      .populate("latestMessage")
       .sort({ updatedAt: -1 })
       .then(async (results) => {
         results = await user.populate(results, {
           path: "latestMessage.sender",
           select: "name email",
         });
-        res.send(results);
+        console.log('Chats fetched correctly')
+        res.json(results);
       });
   } catch (error) {
     res.sendStatus(400);
