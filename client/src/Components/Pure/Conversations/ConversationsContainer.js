@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import ConversationsItem from "./ConversationsItem";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -50,26 +49,54 @@ function ConversationsContainer() {
         className={"conversations-container" + changeTheme}
       >
         {conversations.map((conversation, index) => {
-          return (
-            <div
-            key={index}
-              className={"conversation-container" + changeThemeHover}
-              onClick={() => navigate("/app/chat")}
-            >
-              <p className={"con-icon" + changeThemeDarker}>
-                {conversation.users[1].name[0]}
-              </p>
-              <p className={"con-title" + changeThemeText}>
-                {conversation.users[1].name}
-              </p>
-              <p className={"con-lastMessage" + changeThemeText}>
-                {conversation.users[1].lastMessage}
-              </p>
-              <p className={"con-timeStamp" + changeThemeText}>
-                {conversation.users[1].timeStamp}
-              </p>
-            </div>
-          );
+          if(conversation.latestMessage == undefined) {
+            return (
+              <div
+                key={index}
+                className={"conversation-container" + changeThemeHover}
+                onClick={() =>
+                  navigate(
+                    `chat/${conversation._id}&${conversation.users[1].name}`
+                  )
+                }
+              >
+                <p className={"con-icon" + changeThemeDarker}>
+                  {conversation.users[1].name[0]}
+                </p>
+                <p className={"con-title" + changeThemeText}>
+                  {conversation.users[1].name}
+                </p>
+                <p className={"con-lastMessage" + changeThemeText}>
+                  ¡Aún no hay mensajes!
+                </p>                
+              </div>
+            );
+          } else {
+            return (
+              <div
+                key={index}
+                className={"conversation-container" + changeThemeHover}
+                onClick={() =>
+                  navigate(
+                    `chat/${conversation._id}&${conversation.users[1].name}`
+                  )
+                }
+              >
+                <p className={"con-icon" + changeThemeDarker}>
+                  {conversation.users[1].name[0]}
+                </p>
+                <p className={"con-title" + changeThemeText}>
+                  {conversation.users[1].name}
+                </p>
+                <p className={"con-lastMessage" + changeThemeText}>
+                  {conversation.users[1].lastMessage}
+                </p>
+                <p className={"con-timeStamp" + changeThemeText}>
+                  {conversation.users[1].timeStamp}
+                </p>
+              </div>
+            );
+          }
         })}
       </motion.div>
     </AnimatePresence>
