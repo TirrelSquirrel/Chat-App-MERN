@@ -74,7 +74,6 @@ const fetchChats = expressAsyncHandler(async (req, res) => {
 const fetchGroups = expressAsyncHandler(async (req, res) => {
   try {
     const allGroups = await chat.where("isGroupChat").equals(true);
-    console.log(allGroups)
     res.json(allGroups);
   } catch (error) {
     res.sendStatus(400);

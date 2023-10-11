@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../../../styles/myStyles.css";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
@@ -16,28 +16,45 @@ function Groups() {
   const changeThemeText = lighttheme ? "" : " dark-text";
 
   const [groups, setGroups] = useState([]);
-  const userData = JSON.parse(localStorage.getItem('userData'))
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
   const navigate = useNavigate();
 
-  if(!userData) {
-    console.log('Usuario no autenticado')
-    navigate(-1)
+  if (!userData) {
+    console.log("Usuario no autenticado");
+    navigate(-1);
   }
 
   useEffect(() => {
     console.log("groups refreshed");
     const config = {
       headers: {
-        Authorization: `Bearer ${userData.data.token}`
-      }
-    }
+        Authorization: `Bearer ${userData.data.token}`,
+      },
+    };
 
-    axios.get('http://localhost:5000/chat/fetchGroups', config).then((data) => {
-      console.log('Groups data from API', data);
-      setGroups(data.data)
-    })
+    axios.get("http://localhost:5000/chat/fetchGroups", config).then((data) => {
+      console.log("Groups data from API", data);
+      setGroups(data.data);
+    });
   }, [refresh]);
+
+  const addSelfToGroup = (group) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userData.data.token}`,
+      },
+    };
+
+    axios.put(
+      "http://localhost:5000/chat/addSelfToGroup",
+      {
+        chatId: group._id,
+        userId: userData.data._id,
+      },
+      config
+    );
+  };
 
   return (
     <AnimatePresence>
@@ -67,22 +84,24 @@ function Groups() {
           <input placeholder="Buscar" className={"search-box" + changeTheme} />
         </div>
         <div className="ug-list">
-          {
-
-            groups.map((group, index) => {
-              return (
-                <motion.div
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={"list-item" + changeThemeHover}
-                  key={index}
-                >
-                  <p className={"con-icon" + changeTheme}>{group.chatName[0]}</p>
-                  <p className={"con-title" + changeThemeText}>{group.chatName}</p>
-                </motion.div>
-              );
-            })
-          }
+          {groups.map((group, index) => {
+            return (
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                className={"list-item" + changeThemeHover}
+                key={index}
+                onClick={() => {
+                  addSelfToGroup(group);
+                }}
+              >
+                <p className={"con-icon" + changeTheme}>{group.chatName[0]}</p>
+                <p className={"con-title" + changeThemeText}>
+                  {group.chatName}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </AnimatePresence>
