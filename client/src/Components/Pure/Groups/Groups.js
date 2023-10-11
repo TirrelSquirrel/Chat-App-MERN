@@ -76,6 +76,7 @@ function Groups() {
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   className={"list-item" + changeThemeHover}
+                  key={index}
                 >
                   <p className={"con-icon" + changeTheme}>T</p>
                   <p className={"con-title" + changeThemeText}>Test Group</p>

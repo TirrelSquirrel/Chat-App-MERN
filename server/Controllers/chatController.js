@@ -62,7 +62,7 @@ const fetchChats = expressAsyncHandler(async (req, res) => {
           path: "latestMessage.sender",
           select: "name email",
         });
-        console.log('Chats fetched correctly')
+        console.log("Chats fetched correctly");
         res.json(results);
       });
   } catch (error) {
@@ -74,6 +74,7 @@ const fetchChats = expressAsyncHandler(async (req, res) => {
 const fetchGroups = expressAsyncHandler(async (req, res) => {
   try {
     const allGroups = await chat.where("isGroupChat").equals(true);
+    console.log(allGroups)
     res.json(allGroups);
   } catch (error) {
     res.sendStatus(400);
@@ -83,7 +84,8 @@ const fetchGroups = expressAsyncHandler(async (req, res) => {
 
 const createGroupChat = expressAsyncHandler(async (req, res) => {
   if (!req.body.users || !req.body.name) {
-    return res.sendStatus(400).send({ message: "Datos insuficientes" });
+    throw new Error("Datos insuficientes");
+    return res.sendStatus(400);
   }
 
   let users = JSON.parse(req.body.users);
@@ -152,12 +154,12 @@ const addSelfToGroup = expressAsyncHandler(async (req, res) => {
     .populate("users", "-password")
     .populate("groupAdmin", "-password");
 
-    if(!added) {
-      res.sendStatus(400);
-      throw new Error('Chat no encontrado')
-    } else {
-      res.json('Añadido')
-    }
+  if (!added) {
+    res.sendStatus(400);
+    throw new Error("Chat no encontrado");
+  } else {
+    res.json("Añadido");
+  }
 });
 
 module.exports = {

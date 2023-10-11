@@ -49,7 +49,7 @@ function ConversationsContainer() {
         className={"conversations-container" + changeTheme}
       >
         {conversations.map((conversation, index) => {
-          if(conversation.latestMessage == undefined) {
+          if (conversation.latestMessage == undefined) {
             return (
               <div
                 key={index}
@@ -68,7 +68,7 @@ function ConversationsContainer() {
                 </p>
                 <p className={"con-lastMessage" + changeThemeText}>
                   ¡Aún no hay mensajes!
-                </p>                
+                </p>
               </div>
             );
           } else {

@@ -36,7 +36,7 @@ function SidebarConversations() {
   return (
     <div className={"sb-conversations" + changeTheme}>
       {conversations.map((conversation, index) => {
-        if (conversation.latestMessage == undefined) {
+        if (conversation.latestMessage === undefined) {
           return (
             <div
               key={index}

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function ConversationsItem({ props }) {
-    
   const lighttheme = useSelector((state) => state.themeKey);
   const changeThemeHover = lighttheme ? "" : " dark-hover";
   const changeThemeDarker = lighttheme ? "" : " darker";
