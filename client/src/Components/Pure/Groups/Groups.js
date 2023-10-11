@@ -68,7 +68,6 @@ function Groups() {
         </div>
         <div className="ug-list">
           {
-            //TODO:Determinar los datos a mostrar una vez haya grupos
 
             groups.map((group, index) => {
               return (
@@ -78,8 +77,8 @@ function Groups() {
                   className={"list-item" + changeThemeHover}
                   key={index}
                 >
-                  <p className={"con-icon" + changeTheme}>T</p>
-                  <p className={"con-title" + changeThemeText}>Test Group</p>
+                  <p className={"con-icon" + changeTheme}>{group.chatName[0]}</p>
+                  <p className={"con-title" + changeThemeText}>{group.chatName}</p>
                 </motion.div>
               );
             })

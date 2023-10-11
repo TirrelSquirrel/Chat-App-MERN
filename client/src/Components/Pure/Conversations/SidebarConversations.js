@@ -36,22 +36,24 @@ function SidebarConversations() {
   return (
     <div className={"sb-conversations" + changeTheme}>
       {conversations.map((conversation, index) => {
+        let chatName = "Error";
+        if (conversation.isGroupChat) {
+          chatName = conversation.chatName;
+        } else {
+          chatName = conversation.users[1].name;
+        }
         if (conversation.latestMessage === undefined) {
           return (
             <div
               key={index}
               className={"conversation-container" + changeThemeHover}
-              onClick={() =>
-                navigate(
-                  `chat/${conversation._id}&${conversation.users[1].name}`
-                )
-              }
+              onClick={() => navigate(`chat/${conversation._id}&${chatName}`)}
             >
               <p className={"con-icon" + changeThemeDarker}>
-                {conversation.users[1].name[0]}
+                {chatName[0]}
               </p>
               <p className={"con-title" + changeThemeText}>
-                {conversation.users[1].name}
+                {chatName}
               </p>
               <p className={"con-lastMessage" + changeThemeText}>
                 ¡Aún no hay mensajes!
@@ -70,10 +72,10 @@ function SidebarConversations() {
               }
             >
               <p className={"con-icon" + changeThemeDarker}>
-                {conversation.users[1].name[0]}
+                {chatName[0]}
               </p>
               <p className={"con-title" + changeThemeText}>
-                {conversation.users[1].name}
+                {chatName}
               </p>
               <p className={"con-lastMessage" + changeThemeText}>
                 {conversation.users[1].lastMessage}
