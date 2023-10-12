@@ -30,9 +30,9 @@ const sendMessage = expressAsyncHandler(async (req, res) => {
     chat: chatId,
   };
 
+  console.log(newMessage);
   try {
     let messageSent = await message.create(newMessage);
-    console.log('Mensaje creado');
     messageSent = await message.populate("sender", "name");
     console.log('Pupulado mensaje');
     messageSent = await message.populate("chat");

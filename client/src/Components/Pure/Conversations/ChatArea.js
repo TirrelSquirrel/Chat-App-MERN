@@ -111,8 +111,7 @@ function ChatArea() {
           </div>
           <div className={"messages-container" + changeTheme}>
             {allMessages
-              .slice(0)
-              .reverse()
+              .slice(0)              
               .map((message, index) => {
                 const sender = message.sender;
                 const self_id = userData.data._id;
