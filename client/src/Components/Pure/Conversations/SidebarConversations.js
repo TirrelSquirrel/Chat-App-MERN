@@ -40,7 +40,11 @@ function SidebarConversations() {
         if (conversation.isGroupChat) {
           chatName = conversation.chatName;
         } else {
-          chatName = conversation.users[1].name;
+          if (conversation.users[0].name === userData.data.name) {
+            chatName = conversation.users[1].name;
+          } else {
+            chatName = conversation.users[0].name;
+          }
         }
         if (conversation.latestMessage === undefined) {
           return (
@@ -49,12 +53,8 @@ function SidebarConversations() {
               className={"conversation-container" + changeThemeHover}
               onClick={() => navigate(`chat/${conversation._id}&${chatName}`)}
             >
-              <p className={"con-icon" + changeThemeDarker}>
-                {chatName[0]}
-              </p>
-              <p className={"con-title" + changeThemeText}>
-                {chatName}
-              </p>
+              <p className={"con-icon" + changeThemeDarker}>{chatName[0]}</p>
+              <p className={"con-title" + changeThemeText}>{chatName}</p>
               <p className={"con-lastMessage" + changeThemeText}>
                 ¡Aún no hay mensajes!
               </p>
@@ -71,12 +71,8 @@ function SidebarConversations() {
                 )
               }
             >
-              <p className={"con-icon" + changeThemeDarker}>
-                {chatName[0]}
-              </p>
-              <p className={"con-title" + changeThemeText}>
-                {chatName}
-              </p>
+              <p className={"con-icon" + changeThemeDarker}>{chatName[0]}</p>
+              <p className={"con-title" + changeThemeText}>{chatName}</p>
               <p className={"con-lastMessage" + changeThemeText}>
                 {conversation.users[1].lastMessage}
               </p>

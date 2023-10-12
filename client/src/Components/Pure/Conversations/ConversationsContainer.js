@@ -53,7 +53,12 @@ function ConversationsContainer() {
           if (conversation.isGroupChat) {
             chatName = conversation.chatName
           } else {
-            chatName = conversation.users[1].name
+            if (conversation.users[0].name === userData.data.name) {
+              chatName = conversation.users[1].name;
+            } else {
+              chatName = conversation.users[0].name;
+            }
+            
           }
           if (conversation.latestMessage === undefined) {
             return (
