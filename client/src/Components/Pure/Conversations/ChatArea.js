@@ -48,6 +48,9 @@ function ChatArea() {
       }
     }
 
+    console.log('MESSAGE CONTENT', messageContent)
+    console.log('CHAT ID', chat_id)
+
     axios.post(
       'http://localhost:5000/message/',
       {
@@ -58,6 +61,7 @@ function ChatArea() {
     )
       .then(({data}) => {
         console.log('Mensaje enviado');
+        setMessageContent('')
       })
   }
 
@@ -116,10 +120,8 @@ function ChatArea() {
                 const sender = message.sender;
                 const self_id = userData.data._id;
                 if (sender._id === self_id) {
-                  console.log('messageSelf: ', message)
                   return <MessageSelf props={message} key={index} />;
                 } else {
-                  console.log('messageOther:', message)
                   return <MessageOthers props={message} key={index} />;
                 }
               })}
