@@ -9,9 +9,9 @@ function MessageOthers({props}) {
   return (
     <div className="other-message-container">
       <div className={"conversation-container" + changeThemeHover}>
-        <p className={"con-icon" + changeThemeDarker}>{props.name[0]}</p>
+        <p className={"con-icon" + changeThemeDarker}>{props.sender.name[0]}</p>
         <div className={"other-text-content" + changeThemeDarker}>
-          <p className={"con-title" + changeThemeDarker}>{props.name}</p>
+          <p className={"con-title" + changeThemeDarker}>{props.sender.name}</p>
           <p className={"con-lastMessage" + changeThemeDarker}>
             {props.content}
           </p>

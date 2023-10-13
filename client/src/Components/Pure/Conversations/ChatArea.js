@@ -116,8 +116,10 @@ function ChatArea() {
                 const sender = message.sender;
                 const self_id = userData.data._id;
                 if (sender._id === self_id) {
+                  console.log('messageSelf: ', message)
                   return <MessageSelf props={message} key={index} />;
                 } else {
+                  console.log('messageOther:', message)
                   return <MessageOthers props={message} key={index} />;
                 }
               })}
@@ -152,6 +154,5 @@ function ChatArea() {
   }
 }
           //TODO:CREAR CLASE 'BOTTOM'
-          //TODO:Check error en chat con usuario2
 
 export default ChatArea;
