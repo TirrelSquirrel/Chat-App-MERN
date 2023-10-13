@@ -74,7 +74,7 @@ function SidebarConversations() {
               <p className={"con-icon" + changeThemeDarker}>{chatName[0]}</p>
               <p className={"con-title" + changeThemeText}>{chatName}</p>
               <p className={"con-lastMessage" + changeThemeText}>
-                {conversation.users[1].lastMessage}
+                {conversation.latestMessage.content}
               </p>
               <p className={"con-timeStamp" + changeThemeText}>
                 {conversation.users[1].timeStamp}

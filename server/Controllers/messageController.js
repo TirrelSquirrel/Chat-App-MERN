@@ -36,16 +36,12 @@ const sendMessage = expressAsyncHandler(async (req, res) => {
     var messageSent = await message.create(newMessage);
     console.log(messageSent)
     messageSent = await messageSent.populate("sender", "name");
-    console.log('Pupulado mensaje');
     messageSent = await messageSent.populate("chat");
-    console.log('populado chat');
     messageSent = await messageSent.populate("receiver");
-    console.log('populado receiver');
     messageSent = await user.populate(messageSent, {
       path: "chat.users",
       select: "name email",
     });
-    console.log('populado user.populate');
 
     await chat.findByIdAndUpdate(req.body.chatId, {
       latestMessage: messageSent,
