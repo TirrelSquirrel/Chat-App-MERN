@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { refreshSidebarFun } from "../../../Features/refreshSidebar";
+import {myContext} from '../../Container/MainContainer';
 
 function SidebarConversations() {
   const lighttheme = useSelector((state) => state.themeKey);
@@ -14,6 +16,9 @@ function SidebarConversations() {
 
   const [conversations, setConversations] = useState([]);
   const userData = JSON.parse(localStorage.getItem("userData"));
+
+  const {refresh, setRefresh} = useContext(myContext);
+
 
   if (!userData) {
     console.log("Usuario no autenticado");
@@ -32,7 +37,7 @@ function SidebarConversations() {
       console.log("Chat data from API", data);
       setConversations(data.data);
     });
-  }, []);
+  }, [refresh]);
   return (
     <div className={"sb-conversations" + changeTheme}>
       {conversations.map((conversation, index) => {
@@ -48,16 +53,19 @@ function SidebarConversations() {
         }
         if (conversation.latestMessage === undefined) {
           return (
-            <div
-              key={index}
-              className={"conversation-container" + changeThemeHover}
-              onClick={() => navigate(`chat/${conversation._id}&${chatName}`)}
-            >
-              <p className={"con-icon" + changeThemeDarker}>{chatName[0]}</p>
-              <p className={"con-title" + changeThemeText}>{chatName}</p>
-              <p className={"con-lastMessage" + changeThemeText}>
-                ¡Aún no hay mensajes!
-              </p>
+            <div key={index} onClick={() => {
+              setRefresh(!refresh)
+            }}>
+              <div
+                className={"conversation-container" + changeThemeHover}
+                onClick={() => navigate(`chat/${conversation._id}&${chatName}`)}
+              >
+                <p className={"con-icon" + changeThemeDarker}>{chatName[0]}</p>
+                <p className={"con-title" + changeThemeText}>{chatName}</p>
+                <p className={"con-lastMessage" + changeThemeText}>
+                  ¡Aún no hay mensajes!
+                </p>
+              </div>
             </div>
           );
         } else {
