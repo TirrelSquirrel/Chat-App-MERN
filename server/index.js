@@ -8,7 +8,7 @@ const messageRoutes = require("./Routes/messageRoutes");
 
 const app = express();
 dotenv.config();
-app.use(cors());
+//app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT;
@@ -33,4 +33,34 @@ app.use("/user", userRoutes);
 app.use("/chat", chatRoutes);
 app.use("/message", messageRoutes);
 
-app.listen(PORT, console.log("Server is Running!"));
+const server = app.listen(PORT, console.log("Server is Running!"));
+
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*'
+  },
+  pingTimeout: 60000
+});
+
+io.on('connection', (socket) => {
+  socket.join('setup', (user) => {
+    socket.join(user.data._id);
+    console.log('server :// joined user: ', user.data._id);
+    socket.emit('connected')
+  })
+
+  socket.on('join chat', (room) => {
+    socket.join(room);
+    console.log('User joined room: ', room);
+  })
+
+  socket.on('new message', (newMessageStatus) => {
+    let chat = newMessageStatus.chat;
+    if (!chat.users) {
+      return console.log('chat.users not defined');
+    }
+    chat.users.forEach((user) => {
+      
+    })
+  })
+})
