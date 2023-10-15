@@ -41,6 +41,9 @@ function SidebarConversations() {
   return (
     <div className={"sb-conversations" + changeTheme}>
       {conversations.map((conversation, index) => {
+        //!TODO: mirate esto anda
+        console.warn(conversation)
+        console.warn(conversation.isGroupChat)
         let chatName = "Error";
         if (conversation.isGroupChat) {
           chatName = conversation.chatName;
@@ -75,7 +78,7 @@ function SidebarConversations() {
               className={"conversation-container" + changeThemeHover}
               onClick={() =>
                 navigate(
-                  `chat/${conversation._id}&${conversation.users[1].name}`
+                  `chat/${conversation._id}&${chatName}`
                 )
               }
             >
