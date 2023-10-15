@@ -8,7 +8,9 @@ const messageRoutes = require("./Routes/messageRoutes");
 
 const app = express();
 dotenv.config();
-//app.use(cors());
+/* app.use(cors({
+  origin: '*'
+})); */
 app.use(express.json());
 
 const PORT = process.env.PORT;
@@ -60,7 +62,9 @@ io.on('connection', (socket) => {
       return console.log('chat.users not defined');
     }
     chat.users.forEach((user) => {
-      
+      if (user._id == newMessageStatus.sender._id) return;
+
+      socket.in(user._id).emit('message recieved', newMessageRecieved)
     })
   })
 })
