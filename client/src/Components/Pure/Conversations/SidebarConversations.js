@@ -45,7 +45,8 @@ function SidebarConversations() {
         console.warn(conversation)
         console.warn(conversation.isGroupChat)
         let chatName = "Error";
-        if (conversation.isGroupChat) {
+        const groupChat = conversation.isGroupChat
+        if (groupChat) {
           chatName = conversation.chatName;
         } else {
           if (conversation.users[0].name === userData.data.name) {

@@ -69,14 +69,12 @@ function ChatArea() {
   }, [refresh, chat_id, userData.data.token]);
 
   const sendMessage = () => {
+    var data = null;
     const config = {
       headers: {
         Authorization: `Bearer ${userData.data.token}`,
       },
     };
-
-    console.log("MESSAGE CONTENT", messageContent);
-    console.log("CHAT ID", chat_id);
 
     axios
       .post(
@@ -87,10 +85,12 @@ function ChatArea() {
         },
         config
       )
-      .then(({ data }) => {
+      .then(({ response }) => {
         console.log("Mensaje enviado");
         setMessageContent("");
+        data = response;
       });
+      socket.emit("newMessage", data)
   };
 
   if (!loaded) {
